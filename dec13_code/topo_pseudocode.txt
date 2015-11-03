@@ -1,0 +1,27 @@
+#include <cstdio>
+#include <vector>
+using namespace std;
+bool visited[1000005];
+int n, e;
+void dfs(int x) {
+	if (visited[x]) return;
+	visited[x] = 1;
+	for (vector<int>::iterator it = adjList[x].begin();
+	
+	for all neighbours:
+		dfs(neighbour)
+	
+	topo.push_back(x);
+	
+}
+int main () {
+	scanf("%d%d", &n, &e);
+	//input
+	
+	for (int i = 0; i < n; ++i) {
+		dfs(i);
+	}
+	reverse(topo.begin(), topo.end());
+	
+}
+
