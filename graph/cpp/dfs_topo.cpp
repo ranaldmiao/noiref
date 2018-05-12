@@ -2,7 +2,7 @@ vector<int> adjList[N], topo;
 bool visited[N];
 
 void dfs (int x) {
-    if (visited[x]) continue;
+    if (visited[x]) return;
     visited[x] = 1;
     for (vector<int>::iterator it = adjList[x].begin(); it != adjList[x].end(); ++it) {
         if (visited[*it]) continue;

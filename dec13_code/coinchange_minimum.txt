@@ -1,9 +1,0 @@
-int dp(int v){
-	if(v<0) return 999999999;
-	if(v==0) return 0;
-	if(memo[v]>=0) return memo[v];
-	for(int i=0;i<c;i++){
-		memo[v]=min(memo[v],dp(v-coin[i])+1);
-	}
-	return memo[v];
-}

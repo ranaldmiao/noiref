@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+    NOI Reference
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<link href="/css/docs.min.css" rel="stylesheet">
+<link href="/css/prettify.css" rel="stylesheet">
+<link href="/css/app.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+  </head>
+  <body>
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">NOI Reference</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/misc/">Misc.</a>
+        </li>
+        <li>
+          <a href="/math/">Math</a>
+        </li>
+        <li>
+          <a href="/dp/">Dynamic Programming</a>
+        </li>
+        <li class="active">
+          <a href="/graph/">Graph</a>
+        </li>
+        <li>
+          <a href="/ds/">Data Structure</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header" id="content">
+      <div class="container">
+        <h1>Graph Theory</h1>
+
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-9" role="main">
+<!-- Depth First Search ================================================== -->
+<div class="bs-docs-section">
+  <h1 id="dfs" class="page-header">Depth First Search</h1>
+  <h3 id="dfs-floodgrid">Flood Fill - Grid</h3>
+  <p><code>H</code> and <code>W</code> is the height of the grid and the width of the grid respectively.</p>
+  <p><code>grid[x][y]</code> stores the grid information for the cell (x, y) where 0 &le; x &lt; H and 0 &le; y &lt; W. A cell with 'X' will mean it is a restricted cell (cannot travel on it).</p>
+  <p><code>visited[x][y]</code> indicates whether the cell (x, y) has been visited by DFS before</p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/dfs_floodgrid.cpp"></pre>
+  
+  <h3 id="dfs-floodadjlist">Flood Fill - Adj List</h3>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>adjList[x]</code> stores the directed edges that points from node <code>x</code> to other notes.</p>
+  <p><code>visited[x]</code> indicates whether the node <code>x</code> has been visited or not.</p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/dfs_floodadjlist.cpp"></pre>
+  
+  
+  <h3 id="dfs-topo">Topological Sort</h3>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>adjList[x]</code> stores the directed edges that points from node <code>x</code> to other notes.</p>
+  <p><code>visited[x]</code> indicates whether the node <code>x</code> has been visited or not.</p>
+  <p>Topological order will be stored in vector <code>topo</code>.</p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/dfs_topo.cpp"></pre>
+  
+  <h3 id="dfs-ssspontree">SSSP on Tree</h3>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>adjList[x]</code> stores the directed edges that points from node <code>x</code> to other notes.</p>
+  <p><code>S</code> will be the source of the algorithm. Distance from <code>S</code> to <code>X</code> will be located at <code>dist[X]</code>. A distance of -1 indicates that it is not possible to reach node <code>X</code> from <code>S</code></p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/dfs_ssspontree.cpp"></pre>
+  
+</div>
+
+<!-- Breadth First Search ================================================== -->
+<div class="bs-docs-section">
+  <h1 id="bfs" class="page-header">Breadth First Search</h1>
+  
+  <h3 id="bfs-ssspgrid">SSSP on Grid</h3>
+  <p>For BFS to work for SSSP, edge weights must be the same (or 1).</p>
+  <p><code>H</code> and <code>W</code> is the height of the grid and the width of the grid respectively.</p>
+  <p><code>grid[x][y]</code> stores the grid information for the cell (x, y) where 0 &le; x &lt; H and 0 &le; y &lt; W. A cell with 'X' will mean it is a restricted cell (cannot travel on it).</p>
+  <p><code>dist[x][y]</code> indicates the distance from the start cell(sx, sy) to the cell (x, y). If it is -1, it means that cell (x, y) is not reachable from the start cell.</p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/bfs_ssspgrid.cpp"></pre>
+  
+  <h3 id="bfs-ssspadjlist">SSSP on AdjList</h3>
+  <p>For BFS to work for SSSP, edge weights must be the same (or 1).</p>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>adjList[x]</code> stores the directed edges that points from node <code>x</code> to other notes.</p>
+  <p><code>dist[x]</code> indicates the distance from the start node <code>S</code> to node <code>x</code></p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/bfs_ssspadjlist.cpp"></pre>
+</div>
+
+<!-- Floyd Warshall ================================================== -->
+<div class="bs-docs-section">
+  <h1 id="floyd" class="page-header">Floyd Warshall</h1>
+  <p>The following floyd warshall code works for non-negative edge weights only.</p>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>adjMat[x][y]</code> stores the edge weight from node <code>x</code> to node <code>y</code>. If there is no edge from node <code>x</code> to node <code>y</code>, set <code>adjMat[x][y]</code> to -1 instead.</p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/floyd.cpp"></pre>
+</div>
+
+<!-- Shortest Path Faster Algorithm ================================================== -->
+<div class="bs-docs-section">
+  <h1 id="spfa" class="page-header">Shortest Path Faster Algorithm</h1>
+  <h3 id="spfa-normal">Normal SPFA</h3>
+  <p><b>Use this code only when the end isn't provided by the problem (or you need distance to all the nodes)</b></p>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>adjList[x]</code> stores the directed edges that points from node <code>x</code> to other notes.</p>
+  <p>Source is defined as node <code>S</code>.</p>
+  <p><code>dist[x]</code> indicates the distance from the start node <code>S</code> to node <code>x</code></p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/spfa_normal.cpp"></pre>
+  
+  <h3 id="spfa-prune">Pruned SPFA</h3>
+  <p><b>Use this code when the end is provided for significant pruning (lower runtime)</b></p>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>adjList[x]</code> stores the directed edges that points from node <code>x</code> to other notes.</p>
+  <p>Source is defined as node <code>S</code> and the End is defined as node <code>E</code></p>
+  
+  <pre class="lang-cpp prettyprint" data-code="cpp/spfa_prune.cpp"></pre>
+</div>
+<!-- Dijkstra ================================================== -->
+<div class="bs-docs-section">
+  <h1 id="dijkstra" class="page-header">Dijkstra</h1>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>adjList[x]</code> stores the directed edges that points from node <code>x</code> to other notes.</p>
+  <p>Source is defined as node <code>S</code>.</p>
+  <p><code>dist[x]</code> indicates the distance from the start node <code>S</code> to node <code>x</code></p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/dijkstra.cpp"></pre>
+</div>
+<!-- Kruskal ================================================== -->
+<div class="bs-docs-section">
+  <h1 id="kruskal" class="page-header">Kruskal</h1>
+  <p>Nodes are labelled from 0 to <code>N-1</code> and <code>edgeList</code> stores the list of directed edges (up to <code>E</code> edges)</p>
+  <p>This code solves the <b>Minimum</b> spanning tree problem, change the comparator function to solve the maximum spanning tree problem</p>
+  <p>The answer resides in the variable <code>ans</code></p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/kruskal.cpp"></pre>
+</div>
+<!-- Maximum Cardinality Bipartite Matching ================================================== -->
+<div class="bs-docs-section">
+  <h1 id="mcbm" class="page-header">Maximum Cardinality Bipartite Matching</h1>
+  <h3 id="mcbm-augpath">Augmenting Path</h3>
+  <p>Augmenting Path algorithm implemented with Greedy matching heuristic.</p>
+  <p>Worse case time complexity is O(NE). Realistically, it can handle up to a complete graph of <code>N = 2000</code> or <code>N = 10000</code>, <code>E = 1000000</code>.</p>
+  <p>Initialise the struct with the number of nodes on the left <code>A</code> and the number of groups on the right <code>B</code>. Nodes on the left are labelled from <code>0</code> to <code>A-1</code> while nodes on the right are labelled from <code>0</code> to <code>B-1</code>.</p>
+  <p>Use <code>AddEdge(a, b)</code> to add a possible matching between a node labelled <code>a</code> on the left to the node labelled <code>b</code> on the right.</p>
+  <p>Compute the maximum matching by calling <code>MCBM()</code>, the return value will be the maximum matching possible.</p>
+  <p>If you need to have the exact matching, call <code>GetMatchings()</code> after calling <code>MCBM()</code>. This function will return a vector of pairs, indicating which nodes on the left are matched with which nodes on the right.</p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/mcbm_augpath.cpp"></pre>
+  
+  <h3 id="mcbm-dinic">Dinic's Algorithm</h3>
+  <p>Under Construction, try Augmenting Path? or min cost max flow SPFA with cost 1.</p>
+  <!--pre class="lang-cpp prettyprint" data-code="cpp/spfa_normal.cpp"></pre-->
+</div>
+<!-- Max Flow ================================================== -->
+<div class="bs-docs-section">
+  <h1 id="maxflow" class="page-header">Min Cut Max Flow</h1>
+  <h3 id="maxflow-ek">Edmonds-Karp Algorithm</h3>
+  <p>Under Construction, try Push Relabel? or min cost max flow SPFA with cost 1.</p>
+  <!--pre class="lang-cpp prettyprint" data-code="cpp/spfa_normal.cpp"></pre-->
+  
+  <h3 id="maxflow-pushrelabel">Push Relabel</h3>
+  <p>Push Relabel implemented with FIFO Queue and Gap Heuristic. Code requries O(N+E) memory and has a worse case O(N<sup>3</sup>) time complexity. Realistically, it can handle up to <code>N = 10000</code>, <code>M = 100000</code> easily within 1 second.</p>
+  <p>Initialise the struct with the number of nodes in the graph. Nodes are labelled from <code>0</code> to <code>N-1</code>.</p>
+  <p>Use <code>AddEdge(from, to, capacity)</code> to add edges between nodes. Code uses adjacency list and supports multiple edges between a pair of nodes.</p>
+  <p>Source is defined as node <code>S</code> and the end is defined as node <code>T</code>.</p>
+  <p>Compute the Max Flow by calling <code>MaxFlow(S, T)</code>, the return value will be the maximum flow.</p>
+  <p>Compute the Min Cut by calling <code>MinCut(S, T)</code>, the return value will be a vector containing the list of nodes reachable from the source node after Min Cut.</p>
+  <p>Edges are all stored in vector <code>E</code>. Vector <code>G</code> is an adjacency list that stores the index of the edges in <code>E</code>.</p>
+  <p>For any edge with index <code>ed</code>, the index of it's backflow is index <code>ed^1</code> as they are all inserted in pairs into <code>E</code>.</p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/maxflow_pushrelabel.cpp"></pre>
+
+  <h3 id="maxflow-mincost">Min Cost Max Flow</h3>
+  <p>In general, the approach is to use Edmonds-Karp algorithm, but swapping out the BFS for any shortest path algorithm (Eg: Bellman Ford, SPFA, Dijkstra).</p>
+  <p>Since SPFA always has a better run time than Bellman Ford, the below code does not implement Bellman Ford.</p>
+  <p>Using SPFA, worse case time complexity is minimum of O(NE*max_flow) or O(N<sup>2</sup>E<sup>2</sup>). However, usually SPFA runs much faster and is around O(kNE<sup>2</sup>) where <code>k</code> is a small constant.</p>
+  <p>Using Dijkstra, worse case time complexity is minmum of O(E log N * max_flow) or O(NE<sup>2</sup> log N). However, as Dijkstra cannot handle negative cycles, this is mitigated by adding potentials to keep all the edge weights non-negative. This potential is stored in vector <code>phi</code></p>
+  
+  <p>Initialise the struct with the number of nodes in the graph. Nodes are labelled from <code>0</code> to <code>N-1</code>.</p>
+  <p>Use <code>AddEdge(from, to, cost, capacity)</code> to add edges between nodes. Code uses adjacency list and supports multiple edges between a pair of nodes.</p>
+  <p>Source is defined as node <code>S</code> and the end is defined as node <code>T</code>.</p>
+  <p>Compute the Min Cost Max Flow by calling <code>MinCost_SPFA(S, T, F)</code> or <code>MinCost_Dijkstra(S, T, F)</code>. For both caes, return value will be a pair. The first element would be the maximum flow possible from <code>S</code> to <code>E</code>, while the second element the minimum total cost to send this number of flows from <code>S</code> to <code>T</code>. <code>F</code> is an optional parameter, leave it blank to obtain the maximum possible flow.</p>
+  <p>Edges are all stored in vector <code>E</code>. Vector <code>G</code> is an adjacency list that stores the index of the edges in <code>E</code>.</p>
+  <p>For any edge with index <code>ed</code>, the index of it's backflow is index <code>ed^1</code> as they are all inserted in pairs into <code>E</code>.</p>
+  <pre class="lang-cpp prettyprint" data-code="cpp/maxflow_mincost.cpp"></pre>
+</div>
+
+    </div>
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              
+<li>
+  <a href="#dfs">Depth First Search</a>
+  <ul class="nav">
+    <li><a href="#dfs-floodgrid">Flood Fill - Grid</a></li>
+    <li><a href="#dfs-floodadjlist">Flood Fill - AdjList</a></li>
+    <li><a href="#dfs-topo">Topological Sort</a></li>
+    <li><a href="#dfs-ssspontree">SSSP on Tree</a></li>
+  </ul>
+</li>
+<li>
+  <a href="#bfs">Breadth First Search</a>
+  <ul class="nav">
+    <li><a href="#bfs-ssspgrid">SSSP on Grid</a></li>
+    <li><a href="#bfs-ssspadjlist">SSSP on AdjList</a></li>
+  </ul>
+</li>
+<li><a href="#floyd">Floyd Warshall</a></li>
+<li>
+  <a href="#spfa">Shortest Path Faster Algorithm</a>
+  <ul class="nav">
+    <li><a href="#spfa-normal">Normal SPFA</a></li>
+    <li><a href="#spfa-prune">Pruned SPFA</a></li>
+  </ul>
+</li>
+<li><a href="#dijkstra">Dijkstra</a></li>
+<li><a href="#kruskal">Kruskal</a></li>
+<li>
+  <a href="#mcbm">Bipartite Matching</a>
+  <ul class="nav">
+    <li><a href="#mcbm-augpath">Augmenting Path</a></li>
+    <li><a href="#mcbm-dinic">Dinic's Algorithm</a></li>
+  </ul>
+</li>
+<li>
+  <a href="#maxflow">Max Flow</a>
+  <ul class="nav">
+    <li><a href="#maxflow-ek">Edmonds-Karp Algorithm</a></li>
+    <li><a href="#maxflow-pushrelabel">Push Relabel Algorithm</a></li>
+    <li><a href="#maxflow-mincost">Min Cost Max Flow</a></li>
+  </ul>
+</li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <p>Code compiled and written by Ranald Lam.</p>
+    <p>Copyrighted 2017. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/docs.min.js"></script>
+<script src="/js/prettify.js"></script>
+<script src="/js/app.js"></script>
+
+  </body>
+</html>
+
