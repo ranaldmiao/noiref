@@ -10,7 +10,7 @@ int p[N];
 int par(int x) { return (x==p[x])?x:p[x]=par(p[x]); }
 
 
-sort(edge.begin(), edge.end(), cmp);
+sort(edgeList.begin(), edgeList.end(), cmp);
 int ans = 0;
 for (vector<edge>::iterator it = edgeList.begin(); it != edgeList.end(); ++it) {
     if (par(it->a) == par(it->b)) continue;
