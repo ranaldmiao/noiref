@@ -6,9 +6,9 @@ priority_queue<pi, vector<pi>, greater<pi> > pq;
 memset(dist, -1, sizeof(dist));
 dist[S] = 0;
 pq.push(make_pair(0, S));
-while (!q.empty()) {
-    pi cur = q.top();
-    q.pop();
+while (!pq.empty()) {
+    pi cur = pq.top();
+    pq.pop();
     int x = cur.second, d = cur.first;
     if (d > dist[x]) continue;
     for (vector<pi>::iterator it = adjList[x].begin(); it != adjList[x].end(); ++it) {
